@@ -1,6 +1,17 @@
-export https_proxy=http://127.0.0.1:7897 http_proxy=http://127.0.0.1:7897 all_proxy=socks5://127.0.0.1:7897
 export PATH="/opt/homebrew/bin:$PATH"
 HOMEBREW_NO_AUTO_UPDATE=1
+
+setp(){
+    https_proxy=http://127.0.0.1:7897
+    http_proxy=http://127.0.0.1:7897
+    all_proxy=socks5://127.0.0.1:7897
+}
+unsetp(){
+    unset https_proxy
+    unset http_proxy
+    unset all_proxy
+}
+
 
 
 alias vim=nvim
