@@ -34,10 +34,8 @@ mkdir(){
 
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias ff)
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^w' autosuggest-accept
-bindkey '^e' autosuggest-execute
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ran=joshuto
 alias ls=function_eza
 alias e=exit
@@ -56,6 +54,7 @@ function_exit(){
     exit
 }
 eval "$(starship init zsh)"
+autoload -U compinit && compinit
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
@@ -68,3 +67,6 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
