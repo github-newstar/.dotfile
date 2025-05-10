@@ -1,12 +1,13 @@
 return {
   "folke/tokyonight.nvim",
   lazy = false,
+  enable = false,
   opts = function()
-    local is_transparent = false
+    local is_transparent = true
     local theme_style = "moon"
     return {
       style = theme_style,
-      transparent = is_transparent,
+      transparent = true,
       styles = {
         floats = "transparent",
         sidebars = "transparent",

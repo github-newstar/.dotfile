@@ -273,7 +273,7 @@ map ctrl+a>shift+d     debug_config
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Frappe
+# Tokyo Night
 include current-theme.conf
 # END_KITTY_THEME
 

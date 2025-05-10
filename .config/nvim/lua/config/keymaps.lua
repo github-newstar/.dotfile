@@ -11,7 +11,3 @@ function _G.set_terminal_keymaps()
 end
 
 -- 在终端打开时设置快捷键
-vim.cmd([[autocmd! TermOpen * lua set_terminal_keymaps()]])
--- 禁用 Ctrl+j 和 Ctrl+k 的按键绑定
-vim.api.nvim_set_keymap("n", "<C-j>", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "<Nop>", { noremap = true, silent = true })

@@ -72,53 +72,18 @@ end
 -- 将自定义函数映射到 'zt' 键
 vim.keymap.set("n", "zt", scroll_to_top_plus_20, { noremap = true, silent = true })
 
--- 在 LazyVim 中创建一个函数，当打开的文件符合条件时生成 .clangd 文件
-local function create_clangd_config()
-  -- 获取当前文件的路径
-  local file_path = vim.fn.expand("%:p")
-  -- 检查文件扩展名是否为 .c, .cpp, .h, .hpp
-  if file_path:match("%.c$") or file_path:match("%.cpp$") or file_path:match("%.h$") or file_path:match("%.hpp$") then
-    -- 当前目录路径
-    local current_dir = vim.fn.expand("%:p:h")
-
-    -- 检查当前目录下是否已存在 .clangd 文件
-    local clangd_config_path = current_dir .. "/.clangd"
-    if vim.fn.filereadable(clangd_config_path) == 1 then
-      -- 如果 .clangd 文件存在，则不做任何操作
-      print(".clangd file already exists in " .. current_dir)
-      return
-    end
-
-    -- 获取父级目录路径
-    local parent_dir = vim.fn.fnamemodify(file_path, ":h")
-
-    -- 检查父级目录中是否包含 "qt" 字段
-    if parent_dir:match("qt") then
-      -- 创建 .clangd 文件并写入指定内容
-      local file = io.open(clangd_config_path, "w")
-      if file then
-        file:write('CompileFlags:\n CompilationDatabase: "build/Qt_6_4_2_macos-Debug"\n')
-        file:close()
-        print(".clangd file has been created in " .. current_dir)
-      else
-        print("Failed to create .clangd file.")
-      end
-    end
-  end
-end
-
 -- 在文件打开时调用此函数
-vim.api.nvim_create_autocmd("BufRead", {
-  pattern = { "*.c", "*.cpp", "*.h", "*.hpp" },
-  callback = create_clangd_config,
-})
+---vim.api.nvim_create_autocmd("BufRead", {
+---  pattern = { "*.c", "*.cpp", "*.h", "*.hpp" },
+---  callback = create_clangd_config,
+---})
 
 -- 在 Neovim 配置中，添加以下 Lua 代码
 
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  callback = function()
-    -- 在离开 Insert 模式时切换到英文输入法
-    vim.fn.system("osascript -e 'tell application \"System Events\" to keystroke space using {command down}'")
-  end,
-})
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--   pattern = "*",
+--   callback = function()
+--     -- 在离开 Insert 模式时切换到英文输入法
+--     vim.fn.system("osascript -e 'tell application \"System Events\" to keystroke space using {command down}'")
+--   end,
+-- })
