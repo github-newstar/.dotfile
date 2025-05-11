@@ -1,4 +1,4 @@
-BasedOnStyle: Google
-TabWidth: 4
 UseTab: Never
+TabWidth: 4
 IndentWidth: 4
+BasedOnStyle: Google
