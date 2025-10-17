@@ -28,9 +28,6 @@ alias vi=nvim
 alias vim=neovide
 
 
-mkdir(){
-    /bin/mkdir "$@" && cd "$@"
-}
 
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias ff)
@@ -44,7 +41,12 @@ alias wo="wsh web open"
 alias we="wsh edit"
 alias cb="cmake --build"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfile --work-tree=$HOME'
+alias glm=function_zeroconfigclaude
 
+function_zeroconfigclaude(){
+    nvm use 22
+    claude
+}
 
 
 function_eza(){
@@ -72,3 +74,7 @@ zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 alias lad=lazydocker
 export EDITOR=nvim
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export DOCKER_HOST='unix:///var/folders/yc/wvc04smd5cd5r8bfpphl0t340000gn/T/podman/podman-machine-default-api.sock'

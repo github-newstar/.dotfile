@@ -60,7 +60,7 @@ end
 -- 自定义函数：将当前行滚动到屏幕顶部以下 20 行的位置
 local function scroll_to_top_plus_20()
   local current_line = vim.fn.line(".") -- 获取当前行号
-  local target_line = current_line - 20 -- 计算目标行位置，使其位于屏幕顶部下方 20 行
+  local target_line = current_line - 10 -- 计算目标行位置，使其位于屏幕顶部下方 20 行
 
   if target_line < 1 then
     target_line = 1 -- 确保目标行在合法范围内

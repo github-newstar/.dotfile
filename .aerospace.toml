@@ -220,9 +220,9 @@ run = 'move-node-to-workspace q'
 if.app-id = 'com.netease.163music'
 run = 'move-node-to-workspace q'
 
-[[on-window-detected]]
-if.app-id = 'net.kovidgoyal.kitty'
-run = 'layout floating'
+# [[on-window-detected]]
+# if.app-id = 'net.kovidgoyal.kitty'
+# run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Preview'
